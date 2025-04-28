@@ -5,8 +5,8 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
 # Copy the Maven project files
-COPY pom.xml .
-COPY src ./src
+COPY pom.xml /app/
+COPY src /app/src/
 
 # Install Maven and build the project
 RUN apt-get update && apt-get install -y maven && mvn clean install
