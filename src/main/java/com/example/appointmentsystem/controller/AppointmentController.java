@@ -1,6 +1,7 @@
 package com.example.appointmentsystem.controller;
 
 import com.example.appointmentsystem.dto.AppointmentRequestDTO;
+import com.example.appointmentsystem.dto.AppointmentResponseDTO;
 import com.example.appointmentsystem.model.Appointment;
 import com.example.appointmentsystem.service.AppointmentService;
 import lombok.RequiredArgsConstructor;
@@ -30,9 +31,10 @@ public class AppointmentController {
     }
 
     @GetMapping("/patient/{id}")
-    public ResponseEntity<List<Appointment>> getByPatient(@PathVariable Long id) {
-        return ResponseEntity.ok(appointmentService.getAppointmentsByPatient(id));
-    }
+public ResponseEntity<List<AppointmentResponseDTO>> getByPatient(@PathVariable Long id) {
+    return ResponseEntity.ok(appointmentService.getAppointmentsByPatient(id));
+}
+
 
     @GetMapping("/doctor/{id}")
     public ResponseEntity<List<Appointment>> getByDoctor(@PathVariable Long id) {

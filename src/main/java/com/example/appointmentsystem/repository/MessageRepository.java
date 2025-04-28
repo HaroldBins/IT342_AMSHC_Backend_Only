@@ -20,4 +20,10 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
 
     void deleteBySenderIdOrReceiverId(Long senderId, Long receiverId);
 
+    @Query("SELECT DISTINCT CASE WHEN m.senderId = :userId THEN m.receiverId ELSE m.senderId END FROM Message m WHERE m.senderId = :userId OR m.receiverId = :userId")
+    List<Long> findChatPartnerIds(Long userId);
+
+
+    
+
 }

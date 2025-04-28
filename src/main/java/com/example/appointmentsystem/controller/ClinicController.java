@@ -27,13 +27,16 @@ public class ClinicController {
 
     // ✅ GET all clinics with pagination
     @GetMapping
-    public ResponseEntity<Page<Clinic>> getAllClinics(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size
-    ) {
-        Pageable pageable = PageRequest.of(page, size);
-        return ResponseEntity.ok(clinicService.getAllClinics(pageable));
-    }
+    public ResponseEntity<Page<ClinicDTO>> getAllClinics(
+    @RequestParam(defaultValue = "0") int page,
+    @RequestParam(defaultValue = "10") int size
+) {
+    Pageable pageable = PageRequest.of(page, size);
+    Page<ClinicDTO> clinicDTOs = clinicService.getAllClinics(pageable)
+        .map(clinic -> new ClinicDTO(clinic.getId(), clinic.getName(), clinic.getAddress()));
+    return ResponseEntity.ok(clinicDTOs);
+}
+
 
     // ✅ GET clinic by ID
     @GetMapping("/{id}")

@@ -16,19 +16,18 @@ public class Doctor {
     private Long id;
 
     private String name;
-
     private String gender;
-
     private String specialization;
 
     @Column(name = "years_of_experience", nullable = false)
     private int yearsOfExperience;
 
     @ManyToOne
-    @JoinColumn(name = "clinic") // Not "clinic_id"
+    @JoinColumn(name = "clinic") // Foreign key to Clinic
     private Clinic clinic;
 
-
-
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = true)  // This maps the FK column `user_id`
+    private AppUser user;
 
 }

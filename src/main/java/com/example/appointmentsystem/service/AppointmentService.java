@@ -10,10 +10,12 @@ import com.example.appointmentsystem.repository.DoctorRepository;
 import com.example.appointmentsystem.repository.AppUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.example.appointmentsystem.dto.AppointmentResponseDTO;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -98,9 +100,20 @@ public class AppointmentService {
         );
     }
 
-    public List<Appointment> getAppointmentsByPatient(Long patientId) {
-        return appointmentRepository.findByPatientId(patientId);
-    }
+    public List<AppointmentResponseDTO> getAppointmentsByPatient(Long patientId) {
+    List<Appointment> appointments = appointmentRepository.findByPatientId(patientId);
+
+    return appointments.stream().map(appt -> {
+        AppointmentResponseDTO dto = new AppointmentResponseDTO();
+        dto.setId(appt.getId());
+        dto.setDoctorName(appt.getDoctor().getName());
+        dto.setSpecialization(appt.getDoctor().getSpecialization());
+        dto.setAppointmentStart(appt.getAppointmentStart());
+        dto.setAppointmentEnd(appt.getAppointmentEnd());
+        dto.setStatus(appt.getStatus());
+        return dto;
+    }).collect(Collectors.toList());
+}
 
     public List<Appointment> getAppointmentsByDoctor(Long doctorId) {
         return appointmentRepository.findByDoctorId(doctorId);

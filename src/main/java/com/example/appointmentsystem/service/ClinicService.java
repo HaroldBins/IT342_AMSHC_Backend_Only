@@ -89,6 +89,6 @@ public class ClinicService {
             clinics = Page.empty();
         }
 
-        return clinics.map(clinic -> new ClinicDTO(clinic.getName(), clinic.getAddress()));
+        return clinics.map(clinic -> new ClinicDTO(clinic.getId(), clinic.getName(), clinic.getAddress()));
     }
 }

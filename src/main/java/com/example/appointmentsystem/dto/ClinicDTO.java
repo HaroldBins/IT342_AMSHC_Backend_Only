@@ -8,8 +8,10 @@ public class ClinicDTO {
     private String name;
     private String address;
 
-    public ClinicDTO(String name, String address) {
+    public ClinicDTO(Long id, String name, String address) {
+        this.id = id;
         this.name = name;
         this.address = address;
     }
+    
 }

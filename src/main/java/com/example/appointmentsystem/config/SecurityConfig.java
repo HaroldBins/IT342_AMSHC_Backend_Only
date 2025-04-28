@@ -29,32 +29,43 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+    // Public endpoints
+    .requestMatchers("/api/auth/**").permitAll()
+    .requestMatchers("/uploads/**").permitAll()
+    .requestMatchers(HttpMethod.GET, "/api/clinics/**").permitAll()
+    .requestMatchers(HttpMethod.GET, "/api/doctors").permitAll()
+    .requestMatchers(HttpMethod.GET, "/api/doctors/**").permitAll()
+    .requestMatchers(HttpMethod.POST, "/api/auth/register-doctor").permitAll()
+    .requestMatchers("/api/appointments/book").permitAll()
 
-                        // ✅ Public endpoints
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/clinics/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/doctors/**").permitAll()
-                        .requestMatchers("/api/appointments/book").permitAll()
+    // Allow logged-in users to access their profile
+    .requestMatchers(HttpMethod.GET, "/api/user/me").authenticated()
 
-                        // ✅ Appointment role-based access
-                        .requestMatchers("/api/appointments/patient/**").hasAnyRole("PATIENT", "ADMIN")
-                        .requestMatchers("/api/appointments/doctor/**").hasAnyRole("DOCTOR", "ADMIN")
-                        .requestMatchers("/api/appointments/**").hasRole("ADMIN")
+    // Messaging endpoints (all secured)
+    .requestMatchers("/api/messages/**").authenticated()
 
-                        // ✅ Admin-only for non-GET doctor/clinic operations
-                        .requestMatchers(HttpMethod.POST, "/api/doctors/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/api/doctors/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/api/doctors/**").hasRole("ADMIN")
+    // Appointments role-based access
+    .requestMatchers("/api/appointments/patient/**").hasAnyRole("PATIENT", "ADMIN")
+    .requestMatchers("/api/appointments/doctor/**").hasAnyRole("DOCTOR", "ADMIN")
+    .requestMatchers("/api/appointments/**").hasRole("ADMIN")
 
-                        .requestMatchers(HttpMethod.POST, "/api/clinics/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/api/clinics/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/api/clinics/**").hasRole("ADMIN")
+    // Doctor and Clinic Admin access
+    .requestMatchers(HttpMethod.POST, "/api/doctors/**").hasRole("ADMIN")
+    .requestMatchers(HttpMethod.PUT, "/api/doctors/**").hasRole("ADMIN")
+    .requestMatchers(HttpMethod.DELETE, "/api/doctors/**").hasRole("ADMIN")
+    .requestMatchers(HttpMethod.POST, "/api/clinics/**").hasRole("ADMIN")
+    .requestMatchers(HttpMethod.PUT, "/api/clinics/**").hasRole("ADMIN")
+    .requestMatchers(HttpMethod.DELETE, "/api/clinics/**").hasRole("ADMIN")
 
+    // Notifications
+    .requestMatchers(HttpMethod.PUT, "/api/notifications/mark-read/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+    .requestMatchers(HttpMethod.DELETE, "/api/notifications/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+    .requestMatchers(HttpMethod.GET, "/api/notifications/user/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
 
+    // Any other request
+    .anyRequest().authenticated()
+)
 
-                        // ✅ Fallback for any other endpoint
-                        .anyRequest().authenticated()
-                )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

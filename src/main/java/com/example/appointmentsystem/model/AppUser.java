@@ -22,4 +22,14 @@ public class AppUser {
     private String password;
 
     private String role;
+
+    // AppUser.java
+@Column(name = "reset_code")
+private String resetCode;
+
+@Column(name = "profile_picture_url")
+private String profilePictureUrl;
+
+private String avatarUrl;
+
 }
