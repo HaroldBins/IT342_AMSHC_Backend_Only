@@ -1,17 +1,17 @@
-# Use OpenJDK 21 as base image
-FROM eclipse-temurin:21-jdk
+# ------------ STAGE 1: Build the JAR ------------
+    FROM maven:3.9.3-eclipse-temurin-21 AS builder
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy the Maven project files
-COPY pom.xml /app/
-COPY src /app/src/
-
-# Install Maven and build the project
-RUN apt-get update && apt-get install -y maven && mvn clean install
-
-# Run the Spring Boot application
-CMD ["java", "-jar", "/app/target/appointment-system-0.0.1-SNAPSHOT.jar"]
-
-
+    WORKDIR /build
+    COPY pom.xml .
+    COPY src ./src
+    RUN mvn clean install -DskipTests
+    
+    # ------------ STAGE 2: Run the JAR ------------
+    FROM eclipse-temurin:21-jdk
+    
+    WORKDIR /app
+    COPY --from=builder /build/target/appointment-system-0.0.1-SNAPSHOT.jar app.jar
+    
+    EXPOSE 8080
+    ENTRYPOINT ["java", "-jar", "app.jar"]
+    
