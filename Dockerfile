@@ -13,3 +13,4 @@ RUN apt-get update && apt-get install -y maven && mvn clean install
 
 # Run the Spring Boot application
 CMD ["java", "-jar", "target/appointment-system-0.0.1-SNAPSHOT.jar"]
+
