@@ -10,13 +10,17 @@ public class WebConfig implements WebMvcConfigurer {
 
     // ✅ Allow frontend (React) to access backend
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Allow React frontend
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS") // Added PATCH and OPTIONS
-                .allowedHeaders("*")
-                .allowCredentials(true);
-    }
+public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**")
+            .allowedOrigins(
+                "https://amshc-frontend-web-only.vercel.app",
+                "http://localhost:3000"
+            )
+            .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
+            .allowedHeaders("*")
+            .allowCredentials(true);
+}
+
 
     // ✅ Allow serving uploaded files
     @Override
