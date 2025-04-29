@@ -14,4 +14,6 @@
     
     EXPOSE 8080
     ENTRYPOINT ["java", "-jar", "app.jar"]
+
+    # 👉 This is my test comment to force Git to detect changes
     
