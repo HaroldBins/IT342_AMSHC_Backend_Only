@@ -161,4 +161,10 @@ public ResponseEntity<AppUser> getCurrentUser(Authentication authentication) {
     return ResponseEntity.ok(user);
 }
 
+@GetMapping("/test")
+public ResponseEntity<String> testConnection() {
+    return ResponseEntity.ok("✅ AuthController is reachable from Render!");
+}
+
+
 }
