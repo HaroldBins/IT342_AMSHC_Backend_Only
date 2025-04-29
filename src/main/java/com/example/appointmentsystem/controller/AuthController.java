@@ -166,5 +166,8 @@ public ResponseEntity<String> testConnection() {
     return ResponseEntity.ok("✅ AuthController is reachable from Render!");
 }
 
+// 🚀 Force redeploy to pick up latest code
+
+
 
 }
