@@ -16,4 +16,6 @@
     ENTRYPOINT ["java", "-jar", "app.jar"]
 
     # 👉 This is my test comment to force Git to detect changes
+    # Force rebuild for Render to use updated JAR
+
     
