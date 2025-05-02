@@ -1,55 +1,55 @@
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\DoctorResponseDTO.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\security\CustomUserDetails.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\ResetPasswordRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\config\AppConfig.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\repository\ClinicRepository.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\model\Clinic.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\PatientController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\ChangePasswordRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\AuthResponse.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\model\AppUser.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\BookingRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\config\SecurityConfig.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\service\AuthService.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\AppointmentController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\MessageDTO.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\LoginResponse.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\UpdateProfileRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\LoginRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\service\ClinicService.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\DoctorController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\ClinicDTO.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\MessageController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\model\Message.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\repository\AppointmentRepository.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\security\JwtUtil.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\AuthStatusController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\DoctorRegisterRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\model\Appointment.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\service\EmailService.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\service\AppointmentService.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\UserSimpleDTO.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\UserController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\service\DoctorService.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\model\Notification.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\AppointmentResponseDTO.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\model\NotificationType.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\security\UserDetailsServiceImpl.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\NotificationController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\ForgotPasswordRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\ClinicController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\service\MessageService.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\AppointmentSystemApplication.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\MessageRequestDTO.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\repository\DoctorRepository.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\config\WebConfig.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\service\NotificationService.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\DoctorRequestDTO.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\repository\MessageRepository.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\controller\AuthController.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\model\Doctor.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\RegisterRequest.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\security\JwtAuthenticationFilter.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\repository\NotificationRepository.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\repository\AppUserRepository.java
-C:\Users\iamhe\Documents\IT 342\AMSHC\IT342_AMSHC_Backend_Only\src\main\java\com\example\appointmentsystem\dto\AppointmentRequestDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\config\SecurityConfig.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\security\UserDetailsServiceImpl.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\service\MessageService.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\repository\NotificationRepository.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\UpdateProfileRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\service\AuthService.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\config\WebConfig.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\AppointmentSystemApplication.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\UserSimpleDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\repository\DoctorRepository.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\DoctorRequestDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\repository\AppointmentRepository.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\repository\ClinicRepository.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\ChangePasswordRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\AuthStatusController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\security\JwtUtil.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\ResetPasswordRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\service\ClinicService.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\MessageDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\AppointmentController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\model\Appointment.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\security\CustomUserDetails.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\PatientController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\NotificationController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\LoginRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\AppointmentRequestDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\model\Clinic.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\security\JwtAuthenticationFilter.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\service\EmailService.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\service\NotificationService.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\LoginResponse.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\model\Doctor.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\MessageController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\ForgotPasswordRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\RegisterRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\AppointmentResponseDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\config\AppConfig.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\AuthController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\AuthResponse.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\model\AppUser.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\model\NotificationType.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\ClinicController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\model\Notification.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\UserController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\BookingRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\DoctorResponseDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\repository\MessageRepository.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\service\AppointmentService.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\MessageRequestDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\model\Message.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\DoctorRegisterRequest.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\controller\DoctorController.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\repository\AppUserRepository.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\dto\ClinicDTO.java
+C:\Users\iamhe\Documents\IT 342\AMSHC\AMSHC May 2\AMSHC backend files\src\main\java\com\example\appointmentsystem\service\DoctorService.java

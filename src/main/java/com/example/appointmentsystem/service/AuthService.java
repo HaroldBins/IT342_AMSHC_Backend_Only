@@ -3,6 +3,7 @@ package com.example.appointmentsystem.service;
 import com.example.appointmentsystem.dto.*;
 import com.example.appointmentsystem.model.AppUser;
 import com.example.appointmentsystem.repository.AppUserRepository;
+import com.example.appointmentsystem.repository.DoctorRepository;
 import com.example.appointmentsystem.security.JwtUtil;
 import com.example.appointmentsystem.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import jakarta.transaction.Transactional;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,13 +31,20 @@ public class AuthService {
     private final AppUserRepository appUserRepository;
     private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
+    private final DoctorRepository doctorRepository;
+
 
     public LoginResponse login(LoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-        String token = jwtUtil.generateToken(userDetails);
+        String token = jwtUtil.generateToken(
+    userDetails.getUsername(),     // email
+    userDetails.getUserId(),       // user ID
+    userDetails.getRole()          // role
+);
+
         AppUser user = appUserRepository.findById(userDetails.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
         return new LoginResponse(token, user.getRole(), user.getId(), user.getFullName(), user.getProfilePictureUrl());
@@ -90,13 +99,18 @@ public class AuthService {
         return appUserRepository.findById(userId).orElse(null);
     }
 
-    public boolean deleteAccount(Long userId) {
-        if (appUserRepository.existsById(userId)) {
-            appUserRepository.deleteById(userId);
-            return true;
-        }
-        return false;
+    @Transactional
+public boolean deleteAccount(Long userId) {
+    if (appUserRepository.existsById(userId)) {
+        // Delete the doctor entity if user is a doctor
+        doctorRepository.deleteByUserId(userId);
+
+        // Delete the user itself
+        appUserRepository.deleteById(userId);
+        return true;
     }
+    return false;
+}
 
     public String saveAvatar(Long userId, MultipartFile file) throws IOException {
         String uploadDir = "uploads/avatars/";

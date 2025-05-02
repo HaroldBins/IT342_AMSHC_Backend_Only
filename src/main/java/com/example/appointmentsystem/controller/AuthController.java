@@ -54,7 +54,12 @@ public class AuthController {
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-        String token = jwtUtil.generateToken(userDetails);
+        String token = jwtUtil.generateToken(
+    userDetails.getUsername(),     // email
+    userDetails.getUserId(),       // user ID
+    userDetails.getRole()          // role
+);
+
         AppUser user = appUserRepository.findById(userDetails.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
         return new LoginResponse(token, user.getRole(), user.getId(), user.getFullName(), user.getProfilePictureUrl());

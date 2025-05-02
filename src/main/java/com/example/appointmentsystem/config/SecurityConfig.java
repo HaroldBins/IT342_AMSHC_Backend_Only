@@ -27,51 +27,61 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-    // Public endpoints
-    .requestMatchers("/api/auth/**").permitAll()
-    .requestMatchers("/uploads/**").permitAll()
-    .requestMatchers(HttpMethod.GET, "/api/clinics/**").permitAll()
-    .requestMatchers(HttpMethod.GET, "/api/doctors").permitAll()
-    .requestMatchers(HttpMethod.GET, "/api/doctors/**").permitAll()
-    .requestMatchers(HttpMethod.POST, "/api/auth/register-doctor").permitAll()
-    .requestMatchers("/api/appointments/book").permitAll()
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
 
-    // Allow logged-in users to access their profile
-    .requestMatchers(HttpMethod.GET, "/api/user/me").authenticated()
+                // Public endpoints
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/uploads/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/clinics/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/doctors").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/doctors/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/register-doctor").permitAll()
+                .requestMatchers("/api/appointments/book").permitAll()
 
-    // Messaging endpoints (all secured)
-    .requestMatchers("/api/messages/**").authenticated()
+                // Logged-in users
+                .requestMatchers(HttpMethod.GET, "/api/user/me").authenticated()
 
-    // Appointments role-based access
-    .requestMatchers("/api/appointments/patient/**").hasAnyRole("PATIENT", "ADMIN")
-    .requestMatchers("/api/appointments/doctor/**").hasAnyRole("DOCTOR", "ADMIN")
-    .requestMatchers("/api/appointments/**").hasRole("ADMIN")
+                // Messaging endpoints
+                .requestMatchers("/api/messages/**").authenticated()
 
-    // Doctor and Clinic Admin access
-    .requestMatchers(HttpMethod.POST, "/api/doctors/**").hasRole("ADMIN")
-    .requestMatchers(HttpMethod.PUT, "/api/doctors/**").hasRole("ADMIN")
-    .requestMatchers(HttpMethod.DELETE, "/api/doctors/**").hasRole("ADMIN")
-    .requestMatchers(HttpMethod.POST, "/api/clinics/**").hasRole("ADMIN")
-    .requestMatchers(HttpMethod.PUT, "/api/clinics/**").hasRole("ADMIN")
-    .requestMatchers(HttpMethod.DELETE, "/api/clinics/**").hasRole("ADMIN")
+                // Appointment access
+                .requestMatchers("/api/appointments/patient/**").hasAnyRole("PATIENT", "ADMIN")
+                .requestMatchers("/api/appointments/doctor/**").hasAnyRole("DOCTOR", "ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/appointments/cancel/**")
+    .hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
 
-    // Notifications
-    .requestMatchers(HttpMethod.PUT, "/api/notifications/mark-read/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
-    .requestMatchers(HttpMethod.DELETE, "/api/notifications/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
-    .requestMatchers(HttpMethod.GET, "/api/notifications/user/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+                .requestMatchers("/api/appointments/**").hasRole("ADMIN")
 
-    // Any other request
-    .anyRequest().authenticated()
-)
+                // Doctor and Clinic management
+                .requestMatchers(HttpMethod.POST, "/api/doctors/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/doctors/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/doctors/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/clinics/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/clinics/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/clinics/**").hasRole("ADMIN")
 
-                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                // Notifications – use exact endpoint paths!
+                .requestMatchers(HttpMethod.DELETE, "/api/notifications/**")
+    .hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+
+
+
+                
+.requestMatchers(HttpMethod.GET, "/api/notifications/user/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+.requestMatchers(HttpMethod.PUT, "/api/notifications/read/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+.requestMatchers(HttpMethod.PUT, "/api/notifications/read-all/**").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+.requestMatchers(HttpMethod.POST, "/api/notifications/create").hasAnyRole("PATIENT", "DOCTOR", "ADMIN")
+
+
+                // All other requests
+                .anyRequest().authenticated()
+            )
+            .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {

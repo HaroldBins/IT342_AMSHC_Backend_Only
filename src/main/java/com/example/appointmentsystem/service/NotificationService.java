@@ -1,9 +1,14 @@
 package com.example.appointmentsystem.service;
 
+import com.example.appointmentsystem.model.AppUser;
 import com.example.appointmentsystem.model.Notification;
 import com.example.appointmentsystem.model.NotificationType;
+import com.example.appointmentsystem.repository.AppUserRepository;
 import com.example.appointmentsystem.repository.NotificationRepository;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,6 +19,8 @@ import java.util.List;
 public class NotificationService {
 
     private final NotificationRepository notificationRepository;
+    @Autowired
+private AppUserRepository userRepository;
 
     public Notification createNotification(Long userId, String content, NotificationType type) {
         Notification notification = Notification.builder()
@@ -59,5 +66,10 @@ public class NotificationService {
 
         notificationRepository.deleteById(notificationId);
     }
+
+    public AppUser getUserByEmail(String email) {
+    return userRepository.findByEmail(email)
+           .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+}
 
 }
