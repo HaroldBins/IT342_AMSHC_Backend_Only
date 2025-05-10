@@ -19,8 +19,7 @@ import java.util.List;
 public class NotificationService {
 
     private final NotificationRepository notificationRepository;
-    @Autowired
-private AppUserRepository userRepository;
+    private final AppUserRepository userRepository;
 
     public Notification createNotification(Long userId, String content, NotificationType type) {
         Notification notification = Notification.builder()
@@ -50,26 +49,23 @@ private AppUserRepository userRepository;
 
     public void markAllAsRead(Long userId) {
         List<Notification> unread = notificationRepository.findByUserIdAndIsReadFalse(userId);
-        for (Notification n : unread) {
-            n.setRead(true);
-        }
+        unread.forEach(n -> n.setRead(true));
         notificationRepository.saveAll(unread);
     }
 
     public void deleteNotification(Long notificationId, Long userId) {
         Notification notification = notificationRepository.findById(notificationId)
-                .orElseThrow(() -> new RuntimeException("Notification not found"));
+                .orElseThrow(() -> new RuntimeException("Notification not found with ID: " + notificationId));
 
         if (!notification.getUserId().equals(userId)) {
-            throw new RuntimeException("You are not authorized to delete this notification.");
+            throw new RuntimeException("Unauthorized to delete notification");
         }
 
         notificationRepository.deleteById(notificationId);
     }
 
     public AppUser getUserByEmail(String email) {
-    return userRepository.findByEmail(email)
-           .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-}
-
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+    }
 }

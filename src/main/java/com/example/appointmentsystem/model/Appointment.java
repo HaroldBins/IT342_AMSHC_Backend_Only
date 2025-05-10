@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Getter
 @Setter
@@ -18,10 +20,13 @@ public class Appointment {
     private Long id;
 
     @ManyToOne
-    private Doctor doctor;
+@JsonBackReference
+private Doctor doctor;
 
-    @ManyToOne
-    private AppUser patient;
+
+@ManyToOne
+@JoinColumn(name = "patient_id")
+private AppUser patient;
 
     private LocalDateTime appointmentStart;
     private LocalDateTime appointmentEnd;

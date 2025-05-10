@@ -18,6 +18,8 @@ public class AppointmentController {
 
     private final AppointmentService appointmentService;
 
+
+    
     @PostMapping("/book")
     public ResponseEntity<Appointment> bookAppointment(@RequestBody AppointmentRequestDTO dto) {
         Appointment appointment = appointmentService.bookAppointment(dto);
@@ -31,18 +33,18 @@ public class AppointmentController {
     }
 
     @GetMapping("/patient/{id}")
-public ResponseEntity<List<AppointmentResponseDTO>> getByPatient(@PathVariable Long id) {
-    return ResponseEntity.ok(appointmentService.getAppointmentsByPatient(id));
+    public ResponseEntity<List<AppointmentResponseDTO>> getByPatient(@PathVariable Long id) {
+        return ResponseEntity.ok(appointmentService.getAppointmentsByPatient(id));
+    }
+
+    @GetMapping("/doctor/{id}")
+public ResponseEntity<List<AppointmentResponseDTO>> getByDoctor(@PathVariable Long id) {
+    return ResponseEntity.ok(appointmentService.getAppointmentsByDoctorDTO(id));
 }
 
 
-    @GetMapping("/doctor/{id}")
-    public ResponseEntity<List<Appointment>> getByDoctor(@PathVariable Long id) {
-        return ResponseEntity.ok(appointmentService.getAppointmentsByDoctor(id));
-    }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping
+@PreAuthorize("hasAnyRole('ADMIN', 'DOCTOR', 'PATIENT')")
+@GetMapping
     public ResponseEntity<List<Appointment>> getAllAppointments() {
         return ResponseEntity.ok(appointmentService.getAllAppointments());
     }

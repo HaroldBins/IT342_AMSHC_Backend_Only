@@ -1,5 +1,11 @@
 package com.example.appointmentsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.util.List;
+
+
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,5 +35,11 @@ public class Doctor {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)  // This maps the FK column `user_id`
     private AppUser user;
+
+    // In Doctor.java
+@OneToMany(mappedBy = "doctor")
+@JsonIgnore // Add this
+private List<Appointment> appointments;
+
 
 }

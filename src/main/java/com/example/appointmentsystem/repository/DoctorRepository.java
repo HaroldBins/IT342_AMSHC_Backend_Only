@@ -1,9 +1,7 @@
 package com.example.appointmentsystem.repository;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.example.appointmentsystem.model.Doctor;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
@@ -12,7 +10,6 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     void deleteByUserId(Long userId);
 
-
-
-
+    // ✅ Add this
+    Doctor findByUserId(Long userId);
 }

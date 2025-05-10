@@ -84,7 +84,7 @@ public class DoctorService {
         doctorRepository.delete(doctor);
     }
 
-    private DoctorResponseDTO convertToDTO(Doctor doctor) {
+    public DoctorResponseDTO convertToDTO(Doctor doctor) {
         return new DoctorResponseDTO(
             doctor.getId(),
             doctor.getUser() != null ? doctor.getUser().getId() : null,
@@ -95,7 +95,7 @@ public class DoctorService {
             doctor.getClinic().getId(),
             doctor.getClinic().getName(),
             doctor.getClinic().getAddress(),
-            doctor.getUser() != null ? doctor.getUser().getAvatarUrl() : null // 🆕 Added here
+            doctor.getUser() != null ? doctor.getUser().getAvatarUrl() : null
         );
     }
     

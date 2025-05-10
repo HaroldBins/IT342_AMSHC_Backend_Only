@@ -58,4 +58,19 @@ public class DoctorController {
         return ResponseEntity.ok(doctor);
     }
 
+    
+    @GetMapping("/user/{userId}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'DOCTOR', 'PATIENT')")
+    public ResponseEntity<DoctorResponseDTO> getDoctorByUserId(@PathVariable Long userId) {
+        Doctor doctor = doctorRepository.findByUserId(userId);
+        if (doctor == null) {
+            return ResponseEntity.notFound().build();
+        }
+    
+        return ResponseEntity.ok(doctorService.convertToDTO(doctor));
+    }
+    
+
+
+
 }
